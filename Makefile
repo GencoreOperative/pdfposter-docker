@@ -27,6 +27,11 @@ clean:
 run:
 	-docker run -v $(pwd):/data --rm -it $(IMAGE_NAME)
 
+publish:
+	@echo "Pushing to DockerHub"
+	docker push $(IMAGE_NAME):$(GIT_COMMIT)
+	docker push $(IMAGE_NAME):latest
+
 # Print help message
 .PHONY: help
 help:
